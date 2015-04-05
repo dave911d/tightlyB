@@ -1,0 +1,27 @@
+
+doctype html
+html
+block vars
+    head
+    
+      
+    style
+      include ./public/css/styles.css
+    title= "Dashy"
+    -var computersonline =1;
+    //-var socket = socket.connect('http://localhost:3000');
+
+
+    body
+    .welcometodashy 
+     |Welcome to Dashy -
+     if computersonline =="0"
+          | you have no computers online/connected. :(
+      if computersonline >= "1"
+          | You have #{computersonline} computers online.
+
+  
+  footer
+  #footertext
+  |Made by David Johns- Open source
+      

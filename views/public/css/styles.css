@@ -1,0 +1,16 @@
+
+.welcometoTightlyB{
+  font-size:60px;
+  text-align: center;
+  color: red;
+}
+
+footer {
+  font-size:20px;
+  font-family: Georgia, Serif;
+  text-align: center;
+  margin-top: 700px;
+	height: 150px;
+	clear:both;
+
+}
