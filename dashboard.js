@@ -7,9 +7,9 @@ var express = require('express'); //requires express,our HTTP lib
 var app = express(); //initiates express
 var r = require('rethinkdb');
 require('./routes/routes.js')(app); //sets locations for routes
-//require('./rethinkConfig/rethinkConnect.js');
 var rethinkConfig = require('./rethinkConfig/configRethinkDb.js');
-require('./errorHandling/uncaughtException.js')(app);//run if uncaughtException
+require('./errorHandling/uncaughtException.js')(app);
+//run if uncaughtException
 
 app.engine('jade', require('jade').__express);
   app.set('view engine', 'jade');
