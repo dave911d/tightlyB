@@ -11,7 +11,7 @@ exports.portRethink = function() {
 };
 
 exports.ipRethink = function() {
-  return '10.0.0.31';  //change to the ip of your redis server
+  return '127.0.0.1';  //change to the ip of your redis server
 };
 
 exports.databaseRethink = function() {
