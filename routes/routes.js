@@ -9,7 +9,6 @@ module.exports = function (app) {
   });
 
 
-
 //the 404 page
   app.use(function(req, res){
     res.status(404);

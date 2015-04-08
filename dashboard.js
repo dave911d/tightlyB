@@ -26,16 +26,14 @@ passport.deserializeUser(function(obj, done) {
   app.set('view engine', 'jade');
   passport.initialize();
   passport.session();
-
-  //sets jade,need this to display to browser
    app.set('port', process.env.PORT || 3002);
    //Designates port to run on
-
-
+  //sets jade,need this to display to browser
 require('./oAuth/googleRoutes.js')(app); //google oauth routes
 require('./routes/routes.js')(app); //sets locations for routes
 //this needs to be here so it doesn't mess up passport, see:
 //https://github.com/jaredhanson/passport/issues/51
+
 r.connect(
     { host: rethinkConfig.ipRethink(),
         port: rethinkConfig.portRethink()},
@@ -44,7 +42,7 @@ r.connect(
             console.log(err.stack);
         }
         if (conn){
-            console.log('rethink is working :D');
+            console.log('Rethink is working :D');
         }
     });
 
@@ -75,9 +73,3 @@ app.listen(app.get('port'), function(err){
       //starts the server on specified port(app.get('port'))
       console.log('Have a pat on the back, its working.');
     });
-
-
-    function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/');
-}

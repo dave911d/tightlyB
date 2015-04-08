@@ -1,11 +1,15 @@
 
 .welcometoTightlyB{
-  font-size:60px;
-  text-align: center;
+  font-size:20px;
   color: red;
+  max-width: 600px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-footer {
+.footer {
   font-size:20px;
   font-family: Georgia, Serif;
   text-align: center;
@@ -18,7 +22,20 @@ footer {
 .oauthLogin {
   font-size:20px;
   font-family: Georgia, Serif;
-  text-align: center;
-	clear:both;
+  width: 500px;
+  margin: 15px auto;
+  padding: 1px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*TODO */
+.header {
+
+}
+.navigationBar {
+
+}
+.mainSection {
 
 }

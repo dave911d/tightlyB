@@ -10,7 +10,7 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: 'https://www.googleapis.com/auth/plus.login' }));
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
+  passport.authenticate('google', { failureRedirect: '/failedlogin' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');

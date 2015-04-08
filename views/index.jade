@@ -1,24 +1,26 @@
 
 doctype html
+
 html
-block vars
-    head
+  head
+   style
+    include ./public/css/styles.css
+  title= "tightlyB"
+body
+
+.header
+ h1
+   .welcometoTightlyB
+     |Welcome to TightlyB - be part of something
 
 
-    style
-      include ./public/css/styles.css
-    title= "tightlyB"
+ .navigationBar
+  .oauthLogin
+  |<a href="/auth/google">Log In with google</a>
 
+ .mainSection
+  p
+  |filler text filler text
 
-    body
-    .welcometoTightlyB
-     |Welcome to tightlyB - be part of something
-     login :
-
-     .oauthLogin
-      <a href="/auth/google">Log In with google</a>
-
-
-  footer
-  #footertext
-  |Made by David Johns- Open source
+ .footer
+  |made by David Johns
