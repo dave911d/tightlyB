@@ -7,3 +7,4 @@ configfile.js
 *.idea
 configGoogle.js
 COMMIT_EDITMSG
+npm-debug.log
