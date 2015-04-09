@@ -7,7 +7,9 @@ To run simply:
 4.define the port and IP of said redis server in your rethingConfig/configRethinkDb.js file.
 5.run node dashboard.js
 
+```
 you also need to create a file in the oAuth folder called configGoogle.js that contains :
+
 var exports = module.exports = {};
 
 exports.idGoogle = function() {
@@ -18,3 +20,4 @@ return 'YYYYYYYYYY';
 }
 
 where X is your google id and y is your google secret.
+```
