@@ -15,5 +15,5 @@ exports.ipRethink = function() {
 };
 
 exports.databaseRethink = function() {
-  return 'stats'; //change to the Database you want to use
+  return 'users'; //change to the Database you want to use
 };
