@@ -12,7 +12,7 @@ var exports = module.exports = {};
 
 exports.idGoogle = function() {
 return 'XXXXXXXXXXX';
-
+}
 exports.secretGoogle = function() {
 return 'YYYYYYYYYY';
 }
