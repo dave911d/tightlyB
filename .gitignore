@@ -8,3 +8,5 @@ configfile.js
 configGoogle.js
 COMMIT_EDITMSG
 npm-debug.log
+*rethinkdb_data
+rethinkdb_data*
