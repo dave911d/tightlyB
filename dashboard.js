@@ -4,20 +4,27 @@
 //These are for my eslint setup
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
+
 //Google uses oAuth 2 while twitter uses oAuth1
 //TODO: research .OAuth2Strategy
 var express = require('express');
- //requires express,our HTTP lib
+
+//requires express,our HTTP lib
 var app = express();
+
 //initiates express
 var r = require('rethinkdb');
+
 //our database
 var googleConfig = require('./oAuth/configGoogle.js');
 var twitterConfig = require('./oAuth/configTwitter.js');
+
 //Googles ouath configuration
 var rethinkConfig = require('./rethinkConfig/configRethinkDb.js');
+
 //configures rethink
 require('./errorHandling/uncaughtException.js')(app);
+
 //run if uncaughtException
 var passport = require('passport');
 app.use(passport.initialize());

@@ -6,16 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "david johns",
+  "author": "dave911d and Calesce",
   "license": "MIT",
   "dependencies": {
     "express": "4.12.2",
     "express-session": "^1.11.1",
     "jade": "1.9.2",
     "mocha": "2.2.4",
-    "passport": "^0.2.1",
+    "passport": "0.2.1",
     "passport-google-oauth": "0.2.0",
-    "passport-twitter": "^1.0.3",
+    "passport-twitter": "1.0.3",
     "rethinkdb": "1.16.2"
   }
 }
