@@ -8,6 +8,9 @@ module.exports = function (app) {
     res.render('index', { user: req.user });
   });
 
+  app.get('/badLogin', function (req, res){
+    res.render('badLogin', {user: req.user});
+  });
 
 //the 404 page
   app.use(function(req, res){

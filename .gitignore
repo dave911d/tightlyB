@@ -10,3 +10,4 @@ COMMIT_EDITMSG
 npm-debug.log
 *rethinkdb_data
 rethinkdb_data*
+configTwitter.js

@@ -12,33 +12,43 @@
 .footer {
   font-size:20px;
   font-family: Georgia, Serif;
-  text-align: center;
-  margin-top: 700px;
-	height: 150px;
+  margin: 0 auto;
+  margin-top: 400px;
+	height: 125px;
 	clear:both;
+  padding-left:4px; /*TODO edit this */
 
 }
 
 .oauthLogin {
-  font-size:20px;
-  font-family: Georgia, Serif;
-  width: 500px;
-  margin: 15px auto;
+  font-size:17px;
   padding: 1px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+
 }
 /*TODO */
 .header {
+  font-size:20px;
+  color: red;
+  max-width: 600px;
+  margin: 0 auto;
 
 }
 .navigationBar {
+  font-size:20px;
+  margin: 0 auto;
 
 }
 .mainSection {
-
+  font-size:20px;
+  margin: 0 auto;
+  padding-left: 500px;
 }
 .mainText {
+  /*
+  font-size:20px;
+  color: red;
+  max-width: 600px;
+  margin: 0 auto;
 
+          */
 }

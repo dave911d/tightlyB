@@ -3,6 +3,8 @@
 /*eslint quotes: [2, "single"], curly: 2, camelcase: 1, no-warning-comments:1 no-underscore-dangle:0*/
 //These are for my eslint setup
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+//var TwitterStrategy = require(''); //TODO setup this
+//TODO: research .OAuth2Strategy
 var express = require('express');
  //requires express,our HTTP lib
 var app = express();
@@ -16,7 +18,6 @@ var rethinkConfig = require('./rethinkConfig/configRethinkDb.js');
 require('./errorHandling/uncaughtException.js')(app);
 //run if uncaughtException
 var passport = require('passport');
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.engine('jade', require('jade').__express);

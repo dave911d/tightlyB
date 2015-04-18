@@ -10,9 +10,10 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: 'https://www.googleapis.com/auth/plus.login' }));
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/failedlogin' }),
+  passport.authenticate('google', { failureRedirect: '/badLogin' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
   });
 };
+//TODO check if failureRedirect is called if a failureRedirect happens
