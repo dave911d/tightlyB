@@ -106,6 +106,7 @@ app.use(function(req, res, next) {
   var sess = req.session;
 });
 //TODO: integrate sessions into Program
+//Also change secret in production or else beware
 */
 app.listen(app.get('port'), function(err){
     if (err) {
