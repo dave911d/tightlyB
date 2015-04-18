@@ -3,7 +3,8 @@
 /*eslint quotes: [2, "single"], curly: 2, camelcase: 1, no-warning-comments:1 no-underscore-dangle:0*/
 //These are for my eslint setup
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-//var TwitterStrategy = require(''); //TODO setup this
+var TwitterStrategy = require('passport-twitter').Strategy;
+//Google uses oAuth 2 while twitter uses oAuth1
 //TODO: research .OAuth2Strategy
 var express = require('express');
  //requires express,our HTTP lib
@@ -12,6 +13,7 @@ var app = express();
 var r = require('rethinkdb');
 //our database
 var googleConfig = require('./oAuth/configGoogle.js');
+var twitterConfig = require('./oAuth/configTwitter.js');
 //Googles ouath configuration
 var rethinkConfig = require('./rethinkConfig/configRethinkDb.js');
 //configures rethink
@@ -30,7 +32,7 @@ app.set('port', process.env.PORT || 3002);
 
 //Designates port to run on
 require('./oAuth/googleRoutes.js')(app);
-
+require('./oAuth/twitterRoutes.js')(app);
 //google oauth routes
 require('./routes/routes.js')(app);
 
@@ -63,6 +65,24 @@ r.connect(
       }
     ));
 
+//This is used for the configuration of passport in regards to Twitter
+
+//https://github.com/expressjs/session?_ga=1.35093665.1018356832.1426382569
+//TODO:configure express sessions,useful and required for twitter oAuth
+
+
+passport.use(new TwitterStrategy({
+    consumerKey: twitterConfig.idTwitter(),
+    consumerSecret: twitterConfig.secretTwitter(),
+    callbackURL: 'localhost:3002/auth/twitter/callback'
+  },
+  function(token, tokenSecret, profile, done) {
+    User.findOrCreate( function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
 
 passport.serializeUser(function(user, done) {
   done(null, user);
