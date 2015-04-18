@@ -23,6 +23,9 @@ var twitterConfig = require('./oAuth/configTwitter.js');
 var rethinkConfig = require('./rethinkConfig/configRethinkDb.js');
 
 //configures rethink
+var session = require('express-session');
+
+//required for twitter oAuth
 require('./errorHandling/uncaughtException.js')(app);
 
 //run if uncaughtException
@@ -98,7 +101,12 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
-
+/*app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}));
+app.use(function(req, res, next) {
+  var sess = req.session;
+});
+//TODO: integrate sessions into Program
+*/
 app.listen(app.get('port'), function(err){
     if (err) {
           console.log(err.stack);
