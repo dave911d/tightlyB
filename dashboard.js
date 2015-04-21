@@ -4,17 +4,16 @@
 //These are for my eslint setup
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
-
 //Google uses oAuth 2 while twitter uses oAuth1
-//TODO: research .OAuth2Strategy
 var express = require('express');
-
+var connect = require('connect');
+var app = connect();
 //requires express,our HTTP lib
 var app = express();
+var session = require('express-session');
 
 //initiates express
 var r = require('rethinkdb');
-
 //our database
 var googleConfig = require('./oAuth/configGoogle.js');
 var twitterConfig = require('./oAuth/configTwitter.js');
@@ -23,21 +22,34 @@ var twitterConfig = require('./oAuth/configTwitter.js');
 var rethinkConfig = require('./rethinkConfig/configRethinkDb.js');
 
 //configures rethink
-var session = require('express-session');
 
-//required for twitter oAuth
 require('./errorHandling/uncaughtException.js')(app);
 
 //run if uncaughtException
 var passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
-app.engine('jade', require('jade').__express);
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+
+//required for twitter oAuth
+}));
 
 //sets jade,need this to display to browser
+app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
 passport.initialize();
 passport.session();
+/*passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+*/
 app.set('port', process.env.PORT || 3002);
 
 //Designates port to run on
@@ -94,20 +106,12 @@ passport.use(new TwitterStrategy({
   }
 ));
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-/*app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}));
-app.use(function(req, res, next) {
-  var sess = req.session;
-});
 //TODO: integrate sessions into Program
 //Also change secret in production or else beware
-*/
+
+
+
 app.listen(app.get('port'), function(err){
     if (err) {
           console.log(err.stack);

@@ -9,8 +9,9 @@
   "author": "dave911d and Calesce",
   "license": "MIT",
   "dependencies": {
+    "connect": "^3.3.5",
     "express": "4.12.2",
-    "express-session": "^1.11.1",
+    "express-session": "1.11.1",
     "jade": "1.9.2",
     "mocha": "2.2.4",
     "passport": "0.2.1",
